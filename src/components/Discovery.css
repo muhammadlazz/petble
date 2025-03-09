@@ -1,0 +1,192 @@
+/* Discovery.css */
+
+:root {
+  --primary-color: #1a3c3c;
+  --light-bg: #e6e6e6;
+  --orange: #f0a500;
+  --text-dark: #333;
+  --text-light: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--primary-color);
+}
+
+.discovery-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* Header Styles */
+.discovery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.nav-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.icon-button:hover {
+  color: var(--orange);
+}
+
+/* Content Styles */
+.discovery-content {
+  padding: 0 1rem;
+}
+
+.user-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.user-card {
+  background-color: var(--light-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 130%; /* Aspect ratio for portrait images */
+  overflow: hidden;
+}
+
+.user-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-name {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #ffffff !important; /* Paksa warna menjadi putih */
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Tambahkan efek bayangan agar lebih terbaca */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.user-interests {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.interest-tag {
+  background-color: white;
+  color: var(--text-dark);
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  white-space: nowrap;
+}
+
+.add-friend-btn {
+  margin-left: auto;
+  background-color: var(--orange);
+  color: var(--text-dark);
+  border: none;
+  border-radius: 30px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-friend-btn:hover {
+  background-color: #e09500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .user-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .nav-icons {
+    gap: 0.5rem;
+  }
+  
+  .icon-button {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .logo {
+    font-size: 2rem;
+  }
+  
+  .discovery-header {
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Fix for image loading issues */
+.user-image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #aaa;
+}
+
+/* Placeholder for images until they load */
+.user-image {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
