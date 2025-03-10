@@ -65,11 +65,13 @@
 .signin-input {
   width: 100%;
   padding: 0.75rem;
+  font-style: normal;
+  color: #000; /* Pastikan teks berwarna hitam */
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 0.9rem;
   background-color: #f8f8f8;
-  color: #333; /* Dark text color for better visibility */
+  color: #000; /* Dark text color for better visibility */
 }
 
 .signin-input::placeholder {
@@ -81,6 +83,7 @@
   border-color: #1a3c3c;
   color: #333; /* Ensure text remains visible when focused */
 }
+
 
 .signin-button {
   padding: 0.75rem;

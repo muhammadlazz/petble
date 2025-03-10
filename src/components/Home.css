@@ -192,3 +192,31 @@
     height: 400px;
   }
 }
+
+.breeds-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.breed-card {
+  width: 250px;
+  background: var(--background-color);
+  color: var(--text-color);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.breed-card:hover {
+  transform: scale(1.05);
+}
+
+.breed-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

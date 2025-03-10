@@ -1,27 +1,28 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from 'react'
 
-// Buat Context
-export const ThemeContext = createContext();
+const ThemeContext = createContext()
 
-export const ThemeProvider = ({ children }) => {
-  // Simpan tema di localStorage supaya tetap tersimpan saat refresh
-  const getInitialTheme = () => localStorage.getItem("theme") || "dark";
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
 
-  const [theme, setTheme] = useState(getInitialTheme);
-
+  // Saat tema berubah, simpan ke localStorage dan update class di <html>
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    localStorage.setItem('theme', theme)
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
 
-  // Toggle Tema
+  // Fungsi untuk toggle tema
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
-  };
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
-  );
-};
+  )
+}
+
+export function useTheme() {
+  return useContext(ThemeContext)
+}
