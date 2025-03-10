@@ -33,7 +33,7 @@ const Discovery = () => {
             </div>
             <div className="user-interests">
               <span className="interest-tag">Reptile lovers</span>
-              <span className="interest-tag">Gecko lovers</span>
+              <span className="interest-tag">Cat Lovers</span>
               <button className="add-friend-btn">Add Friend</button>
             </div>
           </div>
