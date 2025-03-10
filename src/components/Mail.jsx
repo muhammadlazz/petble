@@ -15,7 +15,7 @@ const Mail = () => {
   return (
     <div className="mail-container">
       <header className="mail-header">
-        <div className="logo">Petble</div>
+        {/* <div className="logo">Petble</div> */}
         <div className="nav-icons">
           <button className="icon-button"><FiSearch /></button>
           <button className="icon-button"><FiBell /></button>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignIn.css';
+import signinImage from "./signin-image.jpg"; // Ganti dengan path gambar yang sesuai
+
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -19,6 +21,7 @@ const SignIn = () => {
       <div className="signin-card">
         <div className="signin-content">
           <div className="signin-image-container">
+          <img src={signinImage} alt="Sign In Illustration" className="signin-image" />
             <div className="signin-image-placeholder"></div>
           </div>
           

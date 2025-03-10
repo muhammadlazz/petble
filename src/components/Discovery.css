@@ -1,5 +1,5 @@
 /* Discovery.css */
-
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700&display=swap');
 :root {
   --primary-color: #1a3c3c;
   --light-bg: #e6e6e6;
@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Readex Pro', sans-serif;
   background-color: var(--primary-color);
 }
 
@@ -125,6 +125,8 @@ body {
   padding: 0.3rem 0.8rem;
   border-radius: 30px;
   white-space: nowrap;
+  border: 2px solid #1a3c3c; /* Warna border */
+  background-color: #fff;
 }
 
 .add-friend-btn {

@@ -1,5 +1,7 @@
 import React from "react";
-import "./Notification.css"; // Pastikan CSS ini sudah ada
+import { FiSearch, FiBell, FiMail, FiMoon, FiSettings } from "react-icons/fi"; // Pastikan ikon diimpor
+import { useNavigate } from "react-router-dom";
+import "./Notification.css"; // Pastikan CSS ini ada
 
 const notifications = [
   { id: 1, name: "Jua", date: "Today" },
@@ -9,6 +11,7 @@ const notifications = [
   { id: 5, name: "Jua", date: "Yesterday" },
 ];
 
+// Kelompokkan notifikasi berdasarkan tanggal
 const groupedNotifications = notifications.reduce((acc, notif) => {
   if (!acc[notif.date]) acc[notif.date] = [];
   acc[notif.date].push(notif);
@@ -16,13 +19,22 @@ const groupedNotifications = notifications.reduce((acc, notif) => {
 }, {});
 
 const Notification = () => {
+  const navigate = useNavigate(); // Pastikan useNavigate() dipanggil di dalam komponen
+
   return (
     <div className="notification-container">
-      <h1 className="logo">Petble</h1>
+      {/* Navbar Icons */}
+      <div className="nav-icons">
+        <button className="icon-button" aria-label="Search"><FiSearch /></button>
+        <button className="icon-button" onClick={() => navigate('/notifications')} aria-label="Notifications"><FiBell /></button>
+        <button className="icon-button" onClick={() => navigate('/mail')} aria-label="Mail"><FiMail /></button>
+        <button className="icon-button" aria-label="Dark Mode"><FiMoon /></button>
+        <button className="icon-button" onClick={() => navigate("/settings")} aria-label="Settings"><FiSettings /></button>
+      </div>
 
-      {/* Notifikasi dikelompokkan berdasarkan Today & Yesterday */}
+      {/* Notifikasi dikelompokkan berdasarkan tanggal */}
       {Object.entries(groupedNotifications).map(([date, notifs]) => (
-        <div key={date}>
+        <div key={date} className="notification-group">
           <h2 className="date-header">{date}</h2>
           <div className="notification-card">
             {notifs.map((notif) => (
